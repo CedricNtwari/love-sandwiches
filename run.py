@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -41,7 +42,7 @@ def validata_data(values):
         [int(value) for value in values]
         if len(values) != 6:
             raise ValueError(
-                f'Exactly 6 values requires, you provided {len(values)}'
+                f'Exactly 6 values required, you provided {len(values)}'
             )
     except ValueError as e:
         print(f'Invalid data {e}, please try again.\n')
@@ -82,6 +83,21 @@ def calculate_surplus_data(sales_row):
     return surplus_data
 
 
+def get_last_5_entries_sales():
+    """
+    Collects columns of data from sales worksheet, collecting
+    the last 5 entries for each sandwich and returns the data
+    as a list of lists.
+    """
+    sales = SHEET.worksheet('sales')
+
+    columns = []
+    for ind in range(1,7):
+        column = sales.col_values(ind)
+        columns.append(column[-5:])
+    return columns
+
+
 def main():
     """
     Run all program functions
@@ -94,4 +110,7 @@ def main():
 
 
 print('Welcome to Love Sandwiches Data Automation \n')
-main()
+#main()
+
+sales_columns = get_last_5_entries_sales()
+pprint(sales_columns)
