@@ -10,6 +10,12 @@ This is the Code Institute student template for deploying your third portfolio p
 - Your dependencies must be placed in the `requirements.txt` file
 - Do not edit any of the other files or your code may not deploy properly
 
+## Deployment link & Google sheet
+
+- https://love-sandwiches-cece-84a2e76a5b78.herokuapp.com/
+- https://docs.google.com/spreadsheets/d/1m-cJ4VTPvbCY-9z_xeVo3z3W3Ok64wZ2mpt-xY98hoA/edit#gid=1680754323
+  Google sheet to check id data is successfully updated
+
 ## Creating the Heroku app
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
